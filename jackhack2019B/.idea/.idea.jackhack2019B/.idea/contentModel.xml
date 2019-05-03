@@ -20,7 +20,9 @@
           <e p="BubbleGenerator.cs" t="Include" />
           <e p="IconObject.cs" t="Include" />
           <e p="Manager" t="Include">
+            <e p="Enums.cs" t="Include" />
             <e p="IconGenerator.cs" t="Include" />
+            <e p="ScenePanelManager.cs" t="Include" />
             <e p="TouchMangaer.cs" t="Include" />
             <e p="UserDataManager.cs" t="Include" />
           </e>

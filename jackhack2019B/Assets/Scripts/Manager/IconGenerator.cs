@@ -26,7 +26,9 @@ public class IconGenerator : MonoBehaviour
             if (pocketHuman.Value == 0)
             {
                 GameObject obj = Instantiate(IconPrefab, Content.transform);
-                obj.GetComponent<Image>().sprite = FindPocketHumanData(pocketHuman.Key).Icon;
+                PocketHumanData targetPocketHumanData = FindPocketHumanData(pocketHuman.Key);
+                obj.GetComponent<Image>().sprite = targetPocketHumanData.Icon;
+                obj.GetComponent<Icon>().IconPocketHumanData = targetPocketHumanData;
             }
         }
     }
