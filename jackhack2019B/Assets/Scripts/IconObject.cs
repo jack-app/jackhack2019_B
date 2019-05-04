@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class IconObject : MonoBehaviour
 {
+    public PocketHumanData pocketHumanData;
+
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<SpriteRenderer>().sprite = pocketHumanData.Card;
     }
 
     // Update is called once per frame

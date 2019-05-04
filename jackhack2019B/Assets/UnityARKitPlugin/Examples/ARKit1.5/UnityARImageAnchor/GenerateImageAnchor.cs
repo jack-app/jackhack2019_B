@@ -14,6 +14,8 @@ public class GenerateImageAnchor : MonoBehaviour {
 
 	private GameObject imageAnchorGO;
 
+    public PocketHumanData pocketHumanData;
+
 	// Use this for initialization
 	void Start () {
 		UnityARSessionNativeInterface.ARImageAnchorAddedEvent += AddImageAnchor;
@@ -30,6 +32,7 @@ public class GenerateImageAnchor : MonoBehaviour {
 			Quaternion rotation = UnityARMatrixOps.GetRotation (arImageAnchor.transform);
 
 			imageAnchorGO = Instantiate<GameObject> (prefabToGenerate, position, rotation);
+            imageAnchorGO.GetComponent<IconObject>().pocketHumanData = pocketHumanData;
 		}
 	}
 
