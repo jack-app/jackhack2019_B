@@ -19,6 +19,6 @@ public class IconObject : MonoBehaviour
     }
 
     public void OpenProfile(){
-        Application.OpenURL("https://jack-app.slack.com/team/U7H6X9ETW");
+        Application.OpenURL(pocketHumanData.SlackURL);
     }
 }

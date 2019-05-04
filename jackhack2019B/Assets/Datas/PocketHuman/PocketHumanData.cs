@@ -8,4 +8,5 @@ public class PocketHumanData : ScriptableObject
     public string Name;
     public Sprite Icon;
     public Sprite Card;
+    public string SlackURL;
 }
