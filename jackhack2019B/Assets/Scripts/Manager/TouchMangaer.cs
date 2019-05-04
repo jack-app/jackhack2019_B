@@ -22,7 +22,7 @@ public class TouchMangaer : MonoBehaviour
                     hit.collider.GetComponent<IconObject>().OpenProfile();
                 }else if (hit.transform.tag == "HandCard")
                 {
-                    DuelMatchMaker.SetReady();
+                    DuelMatchMaker.SetReady(hit.collider.GetComponent<HandCard>().pocketHumanData.BloodType);
                 }
             }
         }

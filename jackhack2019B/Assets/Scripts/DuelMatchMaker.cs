@@ -46,14 +46,36 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
                 StartDuel();
             }
         }
-
         
         if (inDuel)
         {
-            
+            //readyの人数
+            int readyCount = 0;
             foreach (var player in PhotonNetwork.PlayerList)
             {
-                
+                if (player.CustomProperties.ContainsKey("RTF"))
+                {
+                    if ((bool) player.CustomProperties["RTF"])
+                    {
+                        readyCount++;
+                    }
+                }
+            }
+
+            //readyの人が2人以上いたらじゃんけんぽん
+            if (readyCount >= 1)
+            {
+                foreach (var player in PhotonNetwork.PlayerList)
+                {
+                    if (player.CustomProperties.ContainsKey("RTF"))
+                    {
+                        if ((bool) player.CustomProperties["RTF"])
+                        {
+                            player.SetCustomProperties(new Hashtable() {{"RTF", false}});
+                        }
+                    }
+                }
+                Janken();
             }
         }
     }
@@ -84,8 +106,39 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         
     }
 
-    public static void SetReady()
+    void Janken()
     {
-        PhotonNetwork.SetPlayerCustomProperties(new Hashtable() { { "ReadyToFight" , true } });
+        string bloodtype_mine = PhotonNetwork.LocalPlayer.CustomProperties["BT"].ToString();
+        string bloodtype_enemy = "A";
+        foreach (var player in PhotonNetwork.PlayerListOthers)
+        {
+            bloodtype_enemy = ZassoUtility.FindPocketHumanData(player.CustomProperties["BT"].ToString()).BloodType;
+        }
+
+        //勝ちパターン
+        if ((bloodtype_mine == "A" && bloodtype_enemy == "O")
+            || (bloodtype_mine == "O" && bloodtype_enemy == "B")
+            || (bloodtype_mine == "B" && bloodtype_enemy == "A"))
+        {
+            Debug.Log("Win!");
+        }
+        //負けパターン
+        else if ((bloodtype_mine == "A" && bloodtype_enemy == "B")
+            || (bloodtype_mine == "O" && bloodtype_enemy == "A")
+            || (bloodtype_mine == "B" && bloodtype_enemy == "O"))
+        {
+            Debug.Log("Lose...");
+        }
+        //引き分けパターン
+        else
+        {
+            Debug.Log("Tie");
+        }
+    }
+
+    public static void SetReady(string blood_type)
+    {
+        PhotonNetwork.SetPlayerCustomProperties(new Hashtable() { { "RTF" , true } });
+        PhotonNetwork.SetPlayerCustomProperties(new Hashtable(){ { "BT", blood_type } });
     }
 }
