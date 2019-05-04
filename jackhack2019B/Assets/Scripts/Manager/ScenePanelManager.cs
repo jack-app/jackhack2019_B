@@ -9,7 +9,7 @@ public class ScenePanelManager : MonoBehaviour
     public GameObject DeckScenePanel;
     public GameObject CardScenePanel;
 
-    public Image CardImage;
+    public GameObject CardParent;
 
     public void ChangerScenePanelToCamera(){
         AllSetActiveFalse();
@@ -23,8 +23,9 @@ public class ScenePanelManager : MonoBehaviour
     public void ChangeScenePanelToCard(PocketHumanData pocketHumanData)
     {
         AllSetActiveFalse();
+        CardParent.GetComponent<Card>().pocketHumanData = pocketHumanData;
+        Debug.Log(pocketHumanData.Card);
         CardScenePanel.SetActive(true);
-        CardImage.sprite = pocketHumanData.Card;
     }
 
     void AllSetActiveFalse()
