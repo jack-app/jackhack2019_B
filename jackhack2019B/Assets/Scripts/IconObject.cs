@@ -9,7 +9,7 @@ public class IconObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = pocketHumanData.Card;
+        GetComponent<SpriteRenderer>().sprite = pocketHumanData.Icon;
     }
 
     // Update is called once per frame

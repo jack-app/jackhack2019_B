@@ -31,7 +31,7 @@ public class GenerateImageAnchor : MonoBehaviour {
 			Vector3 position = UnityARMatrixOps.GetPosition (arImageAnchor.transform);
 			Quaternion rotation = UnityARMatrixOps.GetRotation (arImageAnchor.transform);
 
-			imageAnchorGO = Instantiate<GameObject> (prefabToGenerate, position, rotation);
+            imageAnchorGO = Instantiate<GameObject> (prefabToGenerate, position, new Quaternion(0, rotation.y, rotation.z, rotation.w));
             imageAnchorGO.GetComponent<IconObject>().pocketHumanData = pocketHumanData;
 		}
 	}
@@ -48,6 +48,7 @@ public class GenerateImageAnchor : MonoBehaviour {
                 }
                 imageAnchorGO.transform.position = UnityARMatrixOps.GetPosition(arImageAnchor.transform);
                 imageAnchorGO.transform.rotation = UnityARMatrixOps.GetRotation(arImageAnchor.transform);
+                imageAnchorGO.transform.Rotate(Vector3.right * 90);
             }
             else if (imageAnchorGO.activeSelf)
             {

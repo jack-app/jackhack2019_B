@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0414577f9c6b244e696949154859a4af, type: 3}
   m_Name: YakkiARReferenceImage
   m_EditorClassIdentifier: 
-  imageName: "\u3084\u3063\u304D\u3043"
+  imageName: Yakki
   imageTexture: {fileID: 2800000, guid: cb5cf16cad8184113bf61c960b296bb0, type: 3}
   physicalSize: 0.07
