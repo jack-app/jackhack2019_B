@@ -65,6 +65,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             int readyCount = 0;
             foreach (var player in PhotonNetwork.PlayerList)
             {
+                Debug.Log("A");
                 if (player.CustomProperties.ContainsKey("RTF"))
                 {
                     if ((bool) player.CustomProperties["RTF"])
@@ -73,6 +74,8 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
                     }
                 }
             }
+            
+            Debug.Log(readyCount);
 
             //readyの人が2人以上いたらじゃんけんぽん
             if (readyCount >= 2)
@@ -173,7 +176,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         string bloodtype_enemy = "A";
         foreach (var player in PhotonNetwork.PlayerListOthers)
         {
-            bloodtype_enemy = ZassoUtility.FindPocketHumanData(player.CustomProperties["BT"].ToString()).BloodType;
+            bloodtype_enemy = player.CustomProperties["BT"].ToString();
         }
 
         //勝ちパターン
