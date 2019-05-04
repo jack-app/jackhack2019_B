@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: NasuPocketHumanData
   m_EditorClassIdentifier: 
   Name: "\u306A\u3059"
-  Icon: {fileID: 21300000, guid: 0a8256ef128c07b4b8f8e3e015df2ec0, type: 3}
+  Icon: {fileID: 21300000, guid: 0d589407d0fc84abb96f28311365382d, type: 3}
   Card: {fileID: 21300000, guid: 8b337fe91f4fc5644ae1769110748921, type: 3}
+  SlackURL: 

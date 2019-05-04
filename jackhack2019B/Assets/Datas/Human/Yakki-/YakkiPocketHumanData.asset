@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u3084\u3063\u304D\u3043"
   Icon: {fileID: 21300000, guid: 9664ac587ad364da2b0b124b8f998cd3, type: 3}
-  Card: {fileID: 21300000, guid: 8b337fe91f4fc5644ae1769110748921, type: 3}
+  Card: {fileID: 21300000, guid: 9862c58fa183b4e04b149974226c4522, type: 3}
+  SlackURL: https://jack-app.slack.com/team/UA91K295E/
