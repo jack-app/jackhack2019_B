@@ -65,7 +65,6 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             int readyCount = 0;
             foreach (var player in PhotonNetwork.PlayerList)
             {
-                Debug.Log("A");
                 if (player.CustomProperties.ContainsKey("RTF"))
                 {
                     if ((bool) player.CustomProperties["RTF"])
@@ -75,8 +74,6 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
                 }
             }
             
-            Debug.Log(readyCount);
-
             //readyの人が2人以上いたらじゃんけんぽん
             if (readyCount >= 2)
             {
@@ -157,7 +154,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             {
                 if (handCard.activeSelf)
                 {
-                    handCard.SetActive(false);
+                    handCard.GetComponent<HandCard>().HCSetActive(false);
                     handCards.Remove(handCard);
                     break;
                 }
@@ -165,7 +162,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
 
             foreach (var handCard in handCards)
             {
-                handCard.SetActive(true);
+                handCard.GetComponent<HandCard>().HCSetActive(true);
             }
         }
     }
@@ -204,7 +201,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
 
     public static void SetReady(string blood_type)
     {
-        PhotonNetwork.SetPlayerCustomProperties(new Hashtable() { { "RTF" , true } });
         PhotonNetwork.SetPlayerCustomProperties(new Hashtable(){ { "BT", blood_type } });
+        PhotonNetwork.SetPlayerCustomProperties(new Hashtable() { { "RTF" , true } });
     }
 }

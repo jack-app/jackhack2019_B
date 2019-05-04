@@ -20,4 +20,15 @@ public class HandCard : MonoBehaviour
         pocketHumanData = ZassoUtility.FindPocketHumanData(human_name);
         GetComponent<SpriteRenderer>().sprite = pocketHumanData.Card;
     }
+
+    public void HCSetActive(bool value)
+    {
+        GetComponent<PhotonView>().RPC("PunHCSetActive", RpcTarget.All, value);
+    }
+
+    [PunRPC]
+    void PunHCSetActive(bool value)
+    {
+        gameObject.SetActive(value);
+    }
 }
