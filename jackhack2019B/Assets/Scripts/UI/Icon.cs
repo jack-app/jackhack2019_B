@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Icon : MonoBehaviour
 {
-    public PocketHumanData IconPocketHumanData;   
-    
+    public PocketHumanData IconPocketHumanData;
+
+    private ScenePanelManager scenePanelManager;
+
+    private void Start()
+    {
+        scenePanelManager = GameObject.Find("FooterCanvas").GetComponent<ScenePanelManager>();
+    }
+
     public void OnClick()
     {
-        //図鑑を表示する
+        scenePanelManager.ChangeScenePanelToCard(IconPocketHumanData);
     }
 }

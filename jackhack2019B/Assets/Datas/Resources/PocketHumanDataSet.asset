@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PocketHumanDataSet
   m_EditorClassIdentifier: 
   PocketHumanDatas:
-  - {fileID: 11400000, guid: c904e21e12208e0488527cf4e406e779, type: 2}
+  - {fileID: 11400000, guid: 1321eedbb7f8a4b82938c5233375055a, type: 2}

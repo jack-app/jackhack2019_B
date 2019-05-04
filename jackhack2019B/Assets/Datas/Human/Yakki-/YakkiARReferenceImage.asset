@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0414577f9c6b244e696949154859a4af, type: 3}
+  m_Name: YakkiARReferenceImage
+  m_EditorClassIdentifier: 
+  imageName: "\u3084\u3063\u304D\u3043"
+  imageTexture: {fileID: 2800000, guid: cb5cf16cad8184113bf61c960b296bb0, type: 3}
+  physicalSize: 0.07
