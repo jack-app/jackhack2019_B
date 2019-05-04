@@ -20,6 +20,9 @@ public class TouchMangaer : MonoBehaviour
                 Debug.Log(hit.collider.name);
                 if(hit.transform.tag == "Icon"){
                     hit.collider.GetComponent<IconObject>().OpenProfile();
+                }else if (hit.transform.tag == "HandCard")
+                {
+                    DuelMatchMaker.SetReady();
                 }
             }
         }
