@@ -19,7 +19,7 @@ public class TwoShotManager : MonoBehaviour
         foreach(GameObject icon in icons){
             if (icon.GetComponent<Renderer>().isVisible)
             {
-                if (icon.GetComponent<IconObject>().pocketHumanData.Name == "やっきぃ")
+                if (icon.GetComponent<IconObject>().pocketHumanData.Name == "homu")
                 {
                     includeMe = true;
                 }else{
@@ -29,11 +29,14 @@ public class TwoShotManager : MonoBehaviour
             }
         }
 
-        foreach (GameObject visibleIcon in VisibleIcons)
+        if (includeMe)
         {
-            if (UserDataManager.LoadPocketHuman(visibleIcon.GetComponent<IconObject>().pocketHumanData.Name) == 0)
+            foreach (GameObject visibleIcon in VisibleIcons)
             {
-                UserDataManager.SavePocketHuman(visibleIcon.GetComponent<IconObject>().pocketHumanData.Name);
+                if (UserDataManager.LoadPocketHuman(visibleIcon.GetComponent<IconObject>().pocketHumanData.Name) == 0)
+                {
+                    UserDataManager.SavePocketHuman(visibleIcon.GetComponent<IconObject>().pocketHumanData.Name);
+                }
             }
         }
     }
