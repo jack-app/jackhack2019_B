@@ -4,6 +4,7 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.XR.iOS;
 
 public class DuelMatchMaker : MonoBehaviourPunCallbacks
 {
@@ -52,7 +53,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         //ルーム内の人が2人以上になったらゲーム開始
         if (PhotonNetwork.InRoom && inDuel == false)
         {
-            if (PhotonNetwork.CurrentRoom.PlayerCount >= 1)
+            if (PhotonNetwork.CurrentRoom.PlayerCount >= 2)
             {
                 StartDuel();
             }
@@ -74,7 +75,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             }
 
             //readyの人が2人以上いたらじゃんけんぽん
-            if (readyCount >= 1)
+            if (readyCount >= 2)
             {
                 foreach (var player in PhotonNetwork.PlayerList)
                 {
@@ -90,6 +91,12 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    [PunRPC]
+    void ShareWorldMap(byte[] world_bytes)
+    {
+        ARWorldMap worldMap = ARWorldMap.SerializeFromByteArray(world_bytes);
+    }
     
     void StartDuel()
     {
@@ -97,6 +104,18 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         inDuel = true;
         
         //位置情報の共有
+        var session = UnityARSessionNativeInterface.GetARSessionNativeInterface();
+        session.GetCurrentWorldMapAsync(worldMap => {
+            if (worldMap != null)
+            {
+                var worldMapInBytes = worldMap.SerializeToByteArray(); // ← これがシリアライズされたワールドマップのデータ
+                GetComponent<PhotonView>().RPC("ShareWorldMap", RpcTarget.OthersBuffered, worldMapInBytes);
+            }
+            else
+            {
+                Debug.Log("worldMap is null");
+            }
+        });
         
         //手札の生成(初回のみ)
         if (handCards.Count == 0)
