@@ -1219,6 +1219,7 @@ GameObject:
   - component: {fileID: 1501728031}
   - component: {fileID: 1501728032}
   - component: {fileID: 1501728033}
+  - component: {fileID: 1501728034}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -1293,6 +1294,28 @@ MonoBehaviour:
   inDuel: 0
   HandCardPrefab: {fileID: 7735059528600826041, guid: 834a7a57c0128994da357013962a2ec9,
     type: 3}
+--- !u!114 &1501728034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501728028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 1
+  InstantiationId: 1
+  isRuntimeInstantiated: 0
 --- !u!1 &1508416756
 GameObject:
   m_ObjectHideFlags: 0
