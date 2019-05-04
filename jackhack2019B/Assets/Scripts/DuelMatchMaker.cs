@@ -47,11 +47,13 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             }
         }
 
+        
         if (inDuel)
         {
+            
             foreach (var player in PhotonNetwork.PlayerList)
             {
-                //if()
+                
             }
         }
     }
@@ -69,16 +71,17 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         GameObject obj1 = Instantiate(HandCardPrefab, summonPosition1, Camera.main.transform.rotation);
         obj1.GetComponent<HandCard>().pocketHumanData = handCard1;
         
-        Vector3 summonPosition2 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Vector3.left;
+        Vector3 summonPosition2 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Camera.main.transform.rotation * Vector3.left;
         PocketHumanData handCard2 = UserDataManager.LoadRandomPocketHumanData();
         GameObject obj2 = Instantiate(HandCardPrefab, summonPosition2, Camera.main.transform.rotation);
         obj2.GetComponent<HandCard>().pocketHumanData = handCard2;
         
-        Vector3 summonPosition3 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Vector3.right;
+        Vector3 summonPosition3 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Camera.main.transform.rotation * Vector3.right;
         PocketHumanData handCard3 = UserDataManager.LoadRandomPocketHumanData();
         GameObject obj3 = Instantiate(HandCardPrefab, summonPosition3, Camera.main.transform.rotation);
         obj3.GetComponent<HandCard>().pocketHumanData = handCard3;
-
+        
+        
     }
 
     public static void SetReady()
