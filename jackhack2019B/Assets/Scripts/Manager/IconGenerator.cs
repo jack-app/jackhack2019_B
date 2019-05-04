@@ -23,7 +23,7 @@ public class IconGenerator : MonoBehaviour
         foreach (var pocketHuman in UserDataManager.LoadAllPocketHuman())
         {
             //レベルが0じゃなかったらアイコンを作る(Keyに名前、Valueにレベルが入っている
-            if (pocketHuman.Value == 0)
+            if (pocketHuman.Value != 0)
             {
                 GameObject obj = Instantiate(IconPrefab, Content.transform);
                 PocketHumanData targetPocketHumanData = FindPocketHumanData(pocketHuman.Key);
