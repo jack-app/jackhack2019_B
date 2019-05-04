@@ -3,6 +3,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DuelMatchMaker : MonoBehaviourPunCallbacks
 {
@@ -12,8 +13,18 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
     const string GameVersion = "1";
     const string RoomName = "room";
 
-    private List<GameObject> HandCards;
+    private List<GameObject> handCards;
 
+    void Start()
+    {
+        Init();
+    }
+    
+    void Init()
+    {
+        handCards = new List<GameObject>();
+    }
+    
     public static void StartMatchMaking()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -87,23 +98,54 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         
         //位置情報の共有
         
-        //手札の生成
-        Vector3 summonPosition1 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f;
-        PocketHumanData handCard1 = UserDataManager.LoadRandomPocketHumanData();
-        GameObject obj1 = Instantiate(HandCardPrefab, summonPosition1, Camera.main.transform.rotation);
-        obj1.GetComponent<HandCard>().pocketHumanData = handCard1;
-        
-        Vector3 summonPosition2 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Camera.main.transform.rotation * Vector3.left;
-        PocketHumanData handCard2 = UserDataManager.LoadRandomPocketHumanData();
-        GameObject obj2 = Instantiate(HandCardPrefab, summonPosition2, Camera.main.transform.rotation);
-        obj2.GetComponent<HandCard>().pocketHumanData = handCard2;
-        
-        Vector3 summonPosition3 = Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1f + Camera.main.transform.rotation * Vector3.right;
-        PocketHumanData handCard3 = UserDataManager.LoadRandomPocketHumanData();
-        GameObject obj3 = Instantiate(HandCardPrefab, summonPosition3, Camera.main.transform.rotation);
-        obj3.GetComponent<HandCard>().pocketHumanData = handCard3;
-        
-        
+        //手札の生成(初回のみ)
+        if (handCards.Count == 0)
+        {
+            Vector3 summonPosition1 =
+                Camera.main.transform.position + Camera.main.transform.rotation * Vector3.forward * 1.5f;
+            PocketHumanData handCard1 = UserDataManager.LoadRandomPocketHumanData();
+            GameObject obj1 =
+                PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition1, Camera.main.transform.rotation);
+            obj1.GetComponent<HandCard>().pocketHumanData = handCard1;
+
+            Vector3 summonPosition2 = Camera.main.transform.position +
+                                      Camera.main.transform.rotation * Vector3.forward * 1.5f +
+                                      Camera.main.transform.rotation * Vector3.left;
+            PocketHumanData handCard2 = UserDataManager.LoadRandomPocketHumanData();
+            GameObject obj2 =
+                PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition2, Camera.main.transform.rotation);
+            obj2.GetComponent<HandCard>().pocketHumanData = handCard2;
+
+            Vector3 summonPosition3 = Camera.main.transform.position +
+                                      Camera.main.transform.rotation * Vector3.forward * 1.5f +
+                                      Camera.main.transform.rotation * Vector3.right;
+            PocketHumanData handCard3 = UserDataManager.LoadRandomPocketHumanData();
+            GameObject obj3 =
+                PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition3, Camera.main.transform.rotation);
+            obj3.GetComponent<HandCard>().pocketHumanData = handCard3;
+            
+            handCards.Add(obj1);
+            handCards.Add(obj2);
+            handCards.Add(obj3);
+        }//2巡目以降
+        else
+        {
+            //アクティブなやつをremoveして、非アクティブなやつをアクティブにする
+            foreach (var handCard in handCards)
+            {
+                if (handCard.activeSelf)
+                {
+                    handCard.SetActive(false);
+                    handCards.Remove(handCard);
+                    break;
+                }
+            }
+
+            foreach (var handCard in handCards)
+            {
+                handCard.SetActive(true);
+            }
+        }
     }
 
     void Janken()
@@ -134,6 +176,8 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
         {
             Debug.Log("Tie");
         }
+        
+        StartDuel();
     }
 
     public static void SetReady(string blood_type)

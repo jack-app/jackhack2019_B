@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 
 public class TouchMangaer : MonoBehaviour
@@ -22,7 +23,19 @@ public class TouchMangaer : MonoBehaviour
                     hit.collider.GetComponent<IconObject>().OpenProfile();
                 }else if (hit.transform.tag == "HandCard")
                 {
-                    DuelMatchMaker.SetReady(hit.collider.GetComponent<HandCard>().pocketHumanData.BloodType);
+                    if (hit.transform.GetComponent<PhotonView>().IsMine)
+                    {
+                        GameObject[] handCards = GameObject.FindGameObjectsWithTag("HandCard");
+                        foreach (var handCard in handCards)
+                        {
+                            if (handCard.GetComponent<PhotonView>().IsMine && handCard != hit.collider.gameObject)
+                            {
+                                handCard.SetActive(false);
+                            }
+                        }
+
+                        DuelMatchMaker.SetReady(hit.collider.GetComponent<HandCard>().pocketHumanData.BloodType);
+                    }
                 }
             }
         }
