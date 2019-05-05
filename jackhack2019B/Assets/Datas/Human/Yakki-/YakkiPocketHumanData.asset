@@ -16,3 +16,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 9664ac587ad364da2b0b124b8f998cd3, type: 3}
   Card: {fileID: 21300000, guid: 9862c58fa183b4e04b149974226c4522, type: 3}
   SlackURL: https://jack-app.slack.com/team/UA91K295E/
+  BloodType: B

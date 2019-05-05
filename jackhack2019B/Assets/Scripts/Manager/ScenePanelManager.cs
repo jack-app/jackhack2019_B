@@ -20,6 +20,12 @@ public class ScenePanelManager : MonoBehaviour
         DeckScenePanel.SetActive(true);
     }
 
+    public void ChangeScenePanelToDuel()
+    {
+        AllSetActiveFalse();
+        DuelMatchMaker.StartMatchMaking();
+    }
+
     public void ChangeScenePanelToCard(PocketHumanData pocketHumanData)
     {
         AllSetActiveFalse();
