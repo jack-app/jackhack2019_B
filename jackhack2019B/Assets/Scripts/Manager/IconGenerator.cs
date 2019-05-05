@@ -11,7 +11,7 @@ public class IconGenerator : MonoBehaviour
     private PocketHumanDataSet pocketHumanDataSet;
     private PocketHumanData[] pocketHumanDatas;
     
-    void Start()
+    void OnEnable()
     {
         pocketHumanDataSet = Resources.Load<PocketHumanDataSet>("PocketHumanDataSet");
         pocketHumanDatas = pocketHumanDataSet.PocketHumanDatas;
@@ -26,13 +26,14 @@ public class IconGenerator : MonoBehaviour
             if (pocketHuman.Value != 0)
             {
                 GameObject obj = Instantiate(IconPrefab, Content.transform);
-                PocketHumanData targetPocketHumanData = FindPocketHumanData(pocketHuman.Key);
+                PocketHumanData targetPocketHumanData = ZassoUtility.FindPocketHumanData(pocketHuman.Key);
                 obj.GetComponent<Image>().sprite = targetPocketHumanData.Card;
                 obj.GetComponent<Icon>().IconPocketHumanData = targetPocketHumanData;
             }
         }
     }
 
+    /*
     PocketHumanData FindPocketHumanData(string human_name)
     {
         foreach (var pocketHumanData in pocketHumanDatas)
@@ -45,7 +46,7 @@ public class IconGenerator : MonoBehaviour
 
         return null;
     }
-    
+    */
     // Update is called once per frame
     void Update()
     {
