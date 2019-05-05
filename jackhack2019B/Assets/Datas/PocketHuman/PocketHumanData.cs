@@ -9,4 +9,5 @@ public class PocketHumanData : ScriptableObject
     public Sprite Icon;
     public Sprite Card;
     public string SlackURL;
+    public string BloodType;
 }
