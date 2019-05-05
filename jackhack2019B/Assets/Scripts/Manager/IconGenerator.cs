@@ -11,7 +11,7 @@ public class IconGenerator : MonoBehaviour
     private PocketHumanDataSet pocketHumanDataSet;
     private PocketHumanData[] pocketHumanDatas;
     
-    void Start()
+    void OnEnable()
     {
         pocketHumanDataSet = Resources.Load<PocketHumanDataSet>("PocketHumanDataSet");
         pocketHumanDatas = pocketHumanDataSet.PocketHumanDatas;
