@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0414577f9c6b244e696949154859a4af, type: 3}
   m_Name: kotaoARReferenceImage
   m_EditorClassIdentifier: 
-  imageName: 
-  imageTexture: {fileID: 0}
-  physicalSize: 0
+  imageName: kotao
+  imageTexture: {fileID: 2800000, guid: 4eb42658ec60943f3b2c70a62e4c6a75, type: 3}
+  physicalSize: 0.1

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38b31c4da457764eb23ed232d73c1b6, type: 3}
   m_Name: sugichanPocketHumanData
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
-  Card: {fileID: 0}
-  SlackURL: 
-  BloodType: 
+  Name: "\u30B9\u30AE\u3061\u3083\u3093"
+  Icon: {fileID: 21300000, guid: 15bbd8279db634d0f917e1ea06a78bb0, type: 3}
+  Card: {fileID: 21300000, guid: a458504ccaa7a4ca1a51b2d44f9600e1, type: 3}
+  SlackURL: https://jack-app.slack.com/team/UA92T5J4Q/
+  BloodType: A

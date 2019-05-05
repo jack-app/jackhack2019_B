@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0414577f9c6b244e696949154859a4af, type: 3}
   m_Name: watosonARReferenceImage
   m_EditorClassIdentifier: 
-  imageName: 
-  imageTexture: {fileID: 0}
-  physicalSize: 0
+  imageName: watoson
+  imageTexture: {fileID: 2800000, guid: 7cc6eeb3f650945889bd1a4a4b72d796, type: 3}
+  physicalSize: 0.1

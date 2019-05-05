@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38b31c4da457764eb23ed232d73c1b6, type: 3}
   m_Name: kotaoPocketHumanData
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
-  Card: {fileID: 0}
-  SlackURL: 
-  BloodType: 
+  Name: "\u3053\u305F\u304A"
+  Icon: {fileID: 21300000, guid: 57672deee789b47ae9a84aff6c5294b6, type: 3}
+  Card: {fileID: 21300000, guid: 1cd9a366daeb24b2a98aa31dab23b56f, type: 3}
+  SlackURL: 'https://jack-app.slack.com/team/UJ22SE763/ '
+  BloodType: A

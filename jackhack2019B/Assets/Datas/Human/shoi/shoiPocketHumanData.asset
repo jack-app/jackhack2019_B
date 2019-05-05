@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38b31c4da457764eb23ed232d73c1b6, type: 3}
   m_Name: shoiPocketHumanData
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
-  Card: {fileID: 0}
-  SlackURL: 
-  BloodType: 
+  Name: shoi
+  Icon: {fileID: 21300000, guid: 90183969594974a8a8fec3e38896a906, type: 3}
+  Card: {fileID: 21300000, guid: bee91ee7f9108495ab326bf222502398, type: 3}
+  SlackURL: https://jack-app.slack.com/team/U7H6X9ETW/
+  BloodType: AB
