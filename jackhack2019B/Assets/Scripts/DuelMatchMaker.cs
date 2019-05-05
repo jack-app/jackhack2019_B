@@ -125,6 +125,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             PocketHumanData handCard1 = UserDataManager.LoadRandomPocketHumanData();
             GameObject obj1 =
                 PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition1, Camera.main.transform.rotation);
+            obj1.transform.SetParent(Camera.main.transform);
             obj1.GetComponent<HandCard>().SetPocketHumanData(handCard1);
 
             Vector3 summonPosition2 = Camera.main.transform.position +
@@ -134,6 +135,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             GameObject obj2 =
                 PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition2, Camera.main.transform.rotation);
             obj2.GetComponent<HandCard>().SetPocketHumanData(handCard2);
+            obj2.transform.SetParent(Camera.main.transform);
 
             Vector3 summonPosition3 = Camera.main.transform.position +
                                       Camera.main.transform.rotation * Vector3.forward * 1.5f +
@@ -142,6 +144,7 @@ public class DuelMatchMaker : MonoBehaviourPunCallbacks
             GameObject obj3 =
                 PhotonNetwork.Instantiate(HandCardPrefab.name, summonPosition3, Camera.main.transform.rotation);
             obj3.GetComponent<HandCard>().SetPocketHumanData(handCard3);
+            obj3.transform.SetParent(Camera.main.transform);
             
             handCards.Add(obj1);
             handCards.Add(obj2);

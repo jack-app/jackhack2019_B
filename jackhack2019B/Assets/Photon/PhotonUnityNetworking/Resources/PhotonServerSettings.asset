@@ -34,5 +34,6 @@ MonoBehaviour:
   - RespawnSpaceship
   - ShareWorldMap
   - PunSetPocketHumanData
+  - PunHCSetActive
   DisableAutoOpenWizard: 1
   ShowSettings: 0

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552930ac3c646a14898748bbc7c16821, type: 3}
-  m_Name: PocketHumanDataSet
+  m_Script: {fileID: 11500000, guid: 0414577f9c6b244e696949154859a4af, type: 3}
+  m_Name: HomuARReferenceImage
   m_EditorClassIdentifier: 
-  PocketHumanDatas:
-  - {fileID: 11400000, guid: 1321eedbb7f8a4b82938c5233375055a, type: 2}
-  - {fileID: 11400000, guid: 40e9914651d304994afc5a4bf0932c41, type: 2}
+  imageName: homu
+  imageTexture: {fileID: 2800000, guid: 610237f566607449abc7af1f814acd41, type: 3}
+  physicalSize: 0.07

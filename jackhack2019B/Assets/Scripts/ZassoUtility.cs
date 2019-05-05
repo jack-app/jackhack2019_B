@@ -12,7 +12,8 @@ public class ZassoUtility : MonoBehaviour
         pocketHumanDataSet = Resources.Load<PocketHumanDataSet>("PocketHumanDataSet");
         pocketHumanDatas = pocketHumanDataSet.PocketHumanDatas;
         
-        UserDataManager.SavePocketHuman("やっきぃ");
+        UserDataManager.SavePocketHuman("homu");
+        PlayerPrefs.DeleteKey("HumanLevelやっきぃ");
     }
 
     public static PocketHumanData FindPocketHumanData(string human_name)
